@@ -1,0 +1,102 @@
+/* Custom CSS for Re-USED */
+
+/* Colors */
+:root {
+  --brand-green: #2ecc71;
+  --brand-blue: #3498db;
+  --brand-dark: #2c3e50;
+  --brand-light: #ecf0f1;
+}
+
+/* Header styling */
+.site-header {
+  background-color: var(--brand-green) !important;
+  border-top: 5px solid #27ae60 !important;
+  border-bottom: none !important;
+  min-height: 80px !important;
+}
+
+.site-title {
+  color: white !important;
+  font-size: 32px !important;
+  font-weight: bold !important;
+}
+
+.site-title:hover {
+  color: var(--brand-light) !important;
+  text-decoration: none !important;
+}
+
+.site-nav .page-link {
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+.site-nav .page-link:hover {
+  color: var(--brand-light) !important;
+}
+
+/* Page content */
+.page-content h1 {
+  color: var(--brand-green);
+  border-bottom: 3px solid var(--brand-green);
+  padding-bottom: 10px;
+}
+
+.page-content h2 {
+  color: var(--brand-blue);
+  margin-top: 30px;
+}
+
+.page-content a {
+  color: var(--brand-blue);
+}
+
+.page-content a:hover {
+  color: #2980b9;
+}
+
+/* Feature boxes */
+.feature-box {
+  background-color: var(--brand-light);
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border-left: 5px solid var(--brand-green);
+}
+
+.feature-box h3 {
+  color: var(--brand-green);
+  margin-top: 0;
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--brand-dark) !important;
+  color: var(--brand-light) !important;
+  border-top: none !important;
+}
+
+.site-footer a {
+  color: var(--brand-green) !important;
+}
+
+.site-footer a:hover {
+  color: #3fd47d !important;
+}
+
+.footer-heading {
+  color: white !important;
+}
+
+/* Home page */
+.home h1 {
+  color: var(--brand-green);
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.home h2 {
+  color: var(--brand-blue);
+  margin-top: 40px;
+}
