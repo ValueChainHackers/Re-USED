@@ -9,3 +9,10 @@ theme: minima
 
 plugins:
   - jekyll-feed
+
+# Navigation
+header_pages:
+  - about.md
+  - locations.md
+  - app.md
+  - contact.md
