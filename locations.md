@@ -10,57 +10,66 @@ Find your nearest Re-USED smart battery collection point. Our network is growing
 
 ## Interactive Map
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <div style="background: #e8f5e9; border: 2px solid #27ae60; border-radius: 12px; padding: 20px; margin: 30px 0;">
-<div style="background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f5 100%); border: 2px solid #ccc; border-radius: 8px; min-height: 450px; position: relative; overflow: hidden; box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);">
-
-  <!-- Map Grid Lines -->
-  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(#ddd 1px, transparent 1px), linear-gradient(90deg, #ddd 1px, transparent 1px); background-size: 50px 50px; opacity: 0.3;"></div>
-
-  <!-- City Label -->
-  <div style="position: absolute; top: 20px; left: 20px; background: white; padding: 8px 15px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-weight: bold; color: #2c3e50;">
-    📍 Amsterdam
-  </div>
-
-  <!-- Location Markers -->
-  <div style="position: absolute; top: 25%; left: 30%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3); cursor: pointer;">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
-  </div>
-  <div style="position: absolute; top: 40%; left: 55%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
-  </div>
-  <div style="position: absolute; top: 60%; left: 35%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
-  </div>
-  <div style="position: absolute; top: 50%; left: 70%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
-  </div>
-  <div style="position: absolute; top: 70%; left: 50%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
-  </div>
-  <div style="position: absolute; top: 35%; left: 45%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
-  </div>
-
-  <!-- River/Canal representation -->
-  <div style="position: absolute; top: 0; left: 40%; width: 80px; height: 100%; background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.3), transparent); transform: skewY(-5deg);"></div>
-
-  <!-- Map Controls -->
-  <div style="position: absolute; bottom: 20px; right: 20px; background: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); overflow: hidden;">
-    <div style="padding: 8px 12px; border-bottom: 1px solid #ddd; cursor: pointer; font-size: 18px;">➕</div>
-    <div style="padding: 8px 12px; cursor: pointer; font-size: 18px;">➖</div>
-  </div>
-
-  <!-- Legend -->
-  <div style="position: absolute; bottom: 20px; left: 20px; background: white; padding: 12px 15px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 13px;">
-    <div style="margin-bottom: 5px;"><span style="color: #27ae60; font-size: 16px;">📍</span> Collection Point (15 total)</div>
-    <div><span style="color: #3498db; font-size: 16px;">━</span> Canal</div>
-  </div>
-
+  <div id="map" style="height: 500px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></div>
+  <p style="margin-top: 15px; font-size: 13px; color: #666; text-align: center;">
+    <strong>Interactive Map</strong> - Click markers for location details • Zoom and pan to explore
+  </p>
 </div>
-<p style="margin-top: 15px; font-size: 13px; color: #666; text-align: center;">
-  <strong>Interactive map prototype</strong> - Full functionality with Google Maps/OpenStreetMap coming in production version
-</p>
-</div>
+
+<script>
+  // Initialize map centered on Amsterdam
+  var map = L.map('map').setView([52.3676, 4.9041], 13);
+
+  // Add OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+  // Custom green marker icon
+  var greenIcon = L.icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  // Collection point locations (Amsterdam)
+  var locations = [
+    {name: "Dam Square", coords: [52.3730, 4.8930], area: "Central shopping district", hours: "24/7"},
+    {name: "Nieuwmarkt", coords: [52.3720, 4.9010], area: "Near metro station", hours: "24/7"},
+    {name: "Leidseplein", coords: [52.3640, 4.8830], area: "Entertainment district", hours: "24/7"},
+    {name: "NDSM Wharf", coords: [52.4000, 4.8950], area: "Cultural area", hours: "24/7"},
+    {name: "Buiksloterweg", coords: [52.3950, 4.9100], area: "Residential zone", hours: "24/7"},
+    {name: "Eye Filmmuseum", coords: [52.3842, 4.9010], area: "Tourist area", hours: "24/7"},
+    {name: "De Pijp Market", coords: [52.3550, 4.8940], area: "Shopping area", hours: "24/7"},
+    {name: "Museumplein", coords: [52.3580, 4.8810], area: "Museum district", hours: "24/7"},
+    {name: "Zuidas", coords: [52.3380, 4.8720], area: "Business district", hours: "24/7"},
+    {name: "Central Station", coords: [52.3791, 4.9003], area: "Main transport hub", hours: "24/7"},
+    {name: "Vondelpark", coords: [52.3579, 4.8686], area: "Park entrance", hours: "24/7"},
+    {name: "Jordaan", coords: [52.3760, 4.8820], area: "Historic neighborhood", hours: "24/7"},
+    {name: "Oost", coords: [52.3610, 4.9350], area: "Residential area", hours: "24/7"},
+    {name: "Westerpark", coords: [52.3890, 4.8760], area: "Park area", hours: "24/7"},
+    {name: "Olympic Stadium", coords: [52.3440, 4.8500], area: "Sports complex", hours: "24/7"}
+  ];
+
+  // Add markers to map
+  locations.forEach(function(location) {
+    var marker = L.marker(location.coords, {icon: greenIcon}).addTo(map);
+    marker.bindPopup(
+      "<strong>🗑️ " + location.name + "</strong><br>" +
+      "📍 " + location.area + "<br>" +
+      "⏰ Open " + location.hours + "<br>" +
+      "<a href='#' style='color: #27ae60; font-weight: bold;'>Get Directions</a>"
+    );
+  });
+</script>
 
 ## Current Pilot Locations
 
