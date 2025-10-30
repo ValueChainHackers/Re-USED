@@ -1,102 +1,230 @@
-/* Custom CSS for Re-USED */
+/* Re-USED Static Jekyll Site CSS */
 
-/* Colors */
+/* Import default minima styles first */
+@import url('https://cdn.jsdelivr.net/npm/minima@2.5.1/assets/main.css');
+
+/* Color Variables */
 :root {
-  --brand-green: #2ecc71;
-  --brand-blue: #3498db;
+  --brand-green: #27ae60;
+  --brand-green-light: #2ecc71;
+  --brand-blue: #2980b9;
   --brand-dark: #2c3e50;
   --brand-light: #ecf0f1;
+  --text-dark: #333;
 }
 
-/* Header styling */
+/* Reset and Base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
 .site-header {
-  background-color: var(--brand-green) !important;
-  border-top: 5px solid #27ae60 !important;
-  border-bottom: none !important;
-  min-height: 80px !important;
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-light) 100%) !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 20px 0;
+  min-height: auto !important;
 }
 
-.site-title {
+.site-title,
+.site-title:visited {
   color: white !important;
-  font-size: 32px !important;
-  font-weight: bold !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
 }
 
 .site-title:hover {
-  color: var(--brand-light) !important;
+  color: white !important;
   text-decoration: none !important;
+  opacity: 0.9;
+}
+
+.site-nav {
+  line-height: 60px;
 }
 
 .site-nav .page-link {
   color: white !important;
   font-weight: 500 !important;
+  margin-left: 25px;
+  transition: opacity 0.2s;
 }
 
 .site-nav .page-link:hover {
-  color: var(--brand-light) !important;
+  color: white !important;
+  opacity: 0.8;
+  text-decoration: none;
 }
 
-/* Page content */
-.page-content h1 {
+/* Main Content */
+.page-content {
+  padding: 40px 0;
+  background: white;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
   color: var(--brand-green);
-  border-bottom: 3px solid var(--brand-green);
-  padding-bottom: 10px;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  border-bottom: 4px solid var(--brand-green);
+  padding-bottom: 15px;
 }
 
-.page-content h2 {
+h2 {
   color: var(--brand-blue);
-  margin-top: 30px;
+  font-size: 1.8em;
+  margin-top: 40px;
+  margin-bottom: 15px;
 }
 
-.page-content a {
+h3 {
+  color: var(--brand-green);
+  font-size: 1.4em;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 15px;
+  font-size: 1.05em;
+}
+
+a {
   color: var(--brand-blue);
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
-.page-content a:hover {
-  color: #2980b9;
+a:hover {
+  color: var(--brand-green);
+  text-decoration: underline;
 }
 
-/* Feature boxes */
+/* Feature Boxes */
 .feature-box {
-  background-color: var(--brand-light);
+  background: linear-gradient(135deg, #f8f9fa 0%, var(--brand-light) 100%);
   padding: 30px;
-  margin: 20px 0;
-  border-radius: 8px;
-  border-left: 5px solid var(--brand-green);
+  margin: 25px 0;
+  border-radius: 10px;
+  border-left: 6px solid var(--brand-green);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.12);
 }
 
 .feature-box h3 {
   color: var(--brand-green);
   margin-top: 0;
+  font-size: 1.5em;
+}
+
+.feature-box p {
+  margin-bottom: 0;
+  color: #555;
 }
 
 /* Footer */
 .site-footer {
-  background-color: var(--brand-dark) !important;
+  background: linear-gradient(135deg, var(--brand-dark) 0%, #34495e 100%) !important;
   color: var(--brand-light) !important;
-  border-top: none !important;
+  border-top: 0 !important;
+  padding: 40px 0 30px !important;
+  margin-top: 60px;
 }
 
-.site-footer a {
-  color: var(--brand-green) !important;
-}
-
-.site-footer a:hover {
-  color: #3fd47d !important;
+.site-footer .wrapper {
+  color: var(--brand-light);
 }
 
 .footer-heading {
   color: white !important;
+  font-size: 1.3em;
+  margin-bottom: 15px;
 }
 
-/* Home page */
+.site-footer a {
+  color: var(--brand-green-light) !important;
+}
+
+.site-footer a:hover {
+  color: white !important;
+  text-decoration: underline;
+}
+
+.site-footer p,
+.site-footer ul,
+.site-footer li {
+  color: var(--brand-light) !important;
+}
+
+/* Home Page Specific */
 .home h1 {
-  color: var(--brand-green);
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 20px;
 }
 
-.home h2 {
-  color: var(--brand-blue);
-  margin-top: 40px;
+.home h3 {
+  text-align: center;
+  color: #666;
+  font-weight: 400;
+  font-size: 1.3em;
+  margin-bottom: 40px;
+}
+
+.home hr {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--brand-green), transparent);
+  margin: 40px 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 800px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .home h1 {
+    font-size: 2.2em;
+  }
+
+  .site-title {
+    font-size: 24px !important;
+  }
+
+  .feature-box {
+    padding: 20px;
+  }
 }
