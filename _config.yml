@@ -1,0 +1,20 @@
+# Jekyll Configuration
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Site settings
+title: Re-Turn Smart Battery Container
+description: A sustainable solution for battery recycling
+baseurl: "" # the subpath of your site, e.g., /blog
+url: "" # the base hostname & protocol for your site, e.g., http://example.com
+
+# Build settings
+markdown: kramdown
+permalink: /:year-:month-:day-:title/
+
+# Layout settings
+layout: default
