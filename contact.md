@@ -1,14 +1,13 @@
 ---
-layout: default
+layout: page
 title: Contact
+permalink: /contact/
 ---
 
 # Contact Us
 
-For more information, please contact us at:
+Get in touch with the Re-USED team.
 
-- **Email:** info@re-turn.com
-- **Phone:** +123 456 7890
-- **Address:** 123 Green Street, Recycling City, RC 12345
+**Email:** info@re-used.com
 
-Feel free to reach out to us with any questions or feedback.
+**Location:** Supporting sustainable practices globally

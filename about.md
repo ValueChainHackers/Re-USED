@@ -1,8 +1,15 @@
 ---
-layout: default
+layout: page
 title: About
+permalink: /about/
 ---
 
-# About Us
+# About Re-USED
 
-Welcome to Re-Turn Smart Battery Container. We are dedicated to making battery recycling easy, accessible, and rewarding for everyone. Our smart container uses NFC technology to track recycling contributions and reward users.
+Re-USED is dedicated to promoting sustainable practices through recycling and reusing materials.
+
+## What We Do
+
+- Connect recyclers and reusers
+- Promote sustainable practices
+- Reduce waste through smart material reuse
