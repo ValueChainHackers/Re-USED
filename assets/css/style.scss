@@ -1,0 +1,121 @@
+---
+---
+
+@import "minima";
+
+// Custom colors
+$brand-green: #2ecc71;
+$brand-blue: #3498db;
+$brand-dark: #2c3e50;
+$brand-light: #ecf0f1;
+
+// Header styling
+.site-header {
+  background-color: $brand-green;
+  border-top: 5px solid darken($brand-green, 10%);
+  border-bottom: none;
+  min-height: 80px;
+
+  .site-title {
+    color: white !important;
+    font-size: 32px;
+    font-weight: bold;
+
+    &:hover {
+      color: $brand-light !important;
+      text-decoration: none;
+    }
+  }
+
+  .site-nav .page-link {
+    color: white;
+    font-weight: 500;
+
+    &:hover {
+      color: $brand-light;
+    }
+  }
+}
+
+// Home page hero section
+.home {
+  .page-heading {
+    color: $brand-green;
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    color: $brand-blue;
+    margin-top: 40px;
+  }
+}
+
+// Page content
+.page-content {
+  background-color: white;
+
+  h1 {
+    color: $brand-green;
+    border-bottom: 3px solid $brand-green;
+    padding-bottom: 10px;
+  }
+
+  h2 {
+    color: $brand-blue;
+    margin-top: 30px;
+  }
+
+  a {
+    color: $brand-blue;
+
+    &:hover {
+      color: darken($brand-blue, 15%);
+    }
+  }
+}
+
+// Cards/sections
+.feature-box {
+  background-color: $brand-light;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border-left: 5px solid $brand-green;
+}
+
+// Footer
+.site-footer {
+  background-color: $brand-dark;
+  color: $brand-light;
+  border-top: none;
+
+  a {
+    color: $brand-green;
+
+    &:hover {
+      color: lighten($brand-green, 10%);
+    }
+  }
+
+  .footer-heading {
+    color: white;
+  }
+}
+
+// Buttons
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: $brand-green;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken($brand-green, 10%);
+    color: white;
+  }
+}
