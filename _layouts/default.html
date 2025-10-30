@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncate: 160 }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <div class="header-content">
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <nav class="site-nav">
+          <a class="page-link" href="{{ '/about/' | relative_url }}">About</a>
+          <a class="page-link" href="{{ '/contact/' | relative_url }}">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="wrapper">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrapper">
+      <h2 class="footer-heading">{{ site.title }}</h2>
+      <p>{{ site.description }}</p>
+      <p>Contact: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    </div>
+  </footer>
+</body>
+</html>
