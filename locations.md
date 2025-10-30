@@ -10,16 +10,55 @@ Find your nearest Re-USED smart battery collection point. Our network is growing
 
 ## Interactive Map
 
-<div class="feature-box" style="background: white; padding: 20px;">
-<div id="map-container" style="background: #f0f0f0; border: 2px solid #ddd; border-radius: 8px; min-height: 500px; position: relative; overflow: hidden;">
-  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #7f8c8d;">
-    <h3 style="color: #27ae60; margin-bottom: 15px;">🗺️ Interactive Map</h3>
-    <p style="margin: 0; font-size: 16px;">Battery collection points across participating cities</p>
-    <p style="margin: 10px 0 0 0; font-size: 14px; font-style: italic;">Map integration coming soon</p>
+<div style="background: #e8f5e9; border: 2px solid #27ae60; border-radius: 12px; padding: 20px; margin: 30px 0;">
+<div style="background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f5 100%); border: 2px solid #ccc; border-radius: 8px; min-height: 450px; position: relative; overflow: hidden; box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);">
+
+  <!-- Map Grid Lines -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(#ddd 1px, transparent 1px), linear-gradient(90deg, #ddd 1px, transparent 1px); background-size: 50px 50px; opacity: 0.3;"></div>
+
+  <!-- City Label -->
+  <div style="position: absolute; top: 20px; left: 20px; background: white; padding: 8px 15px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-weight: bold; color: #2c3e50;">
+    📍 Amsterdam
   </div>
+
+  <!-- Location Markers -->
+  <div style="position: absolute; top: 25%; left: 30%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3); cursor: pointer;">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
+  </div>
+  <div style="position: absolute; top: 40%; left: 55%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
+  </div>
+  <div style="position: absolute; top: 60%; left: 35%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
+  </div>
+  <div style="position: absolute; top: 50%; left: 70%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
+  </div>
+  <div style="position: absolute; top: 70%; left: 50%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
+  </div>
+  <div style="position: absolute; top: 35%; left: 45%; width: 40px; height: 40px; background: #27ae60; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); color: white; font-size: 18px;">📍</div>
+  </div>
+
+  <!-- River/Canal representation -->
+  <div style="position: absolute; top: 0; left: 40%; width: 80px; height: 100%; background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.3), transparent); transform: skewY(-5deg);"></div>
+
+  <!-- Map Controls -->
+  <div style="position: absolute; bottom: 20px; right: 20px; background: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); overflow: hidden;">
+    <div style="padding: 8px 12px; border-bottom: 1px solid #ddd; cursor: pointer; font-size: 18px;">➕</div>
+    <div style="padding: 8px 12px; cursor: pointer; font-size: 18px;">➖</div>
+  </div>
+
+  <!-- Legend -->
+  <div style="position: absolute; bottom: 20px; left: 20px; background: white; padding: 12px 15px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-size: 13px;">
+    <div style="margin-bottom: 5px;"><span style="color: #27ae60; font-size: 16px;">📍</span> Collection Point (15 total)</div>
+    <div><span style="color: #3498db; font-size: 16px;">━</span> Canal</div>
+  </div>
+
 </div>
-<p style="margin-top: 15px; font-size: 14px; color: #7f8c8d; text-align: center;">
-  <strong>Note:</strong> Live map functionality will be available once deployed with Google Maps API or OpenStreetMap integration
+<p style="margin-top: 15px; font-size: 13px; color: #666; text-align: center;">
+  <strong>Interactive map prototype</strong> - Full functionality with Google Maps/OpenStreetMap coming in production version
 </p>
 </div>
 
