@@ -1,5 +1,5 @@
 # Jekyll Configuration
-theme: nil
+theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
